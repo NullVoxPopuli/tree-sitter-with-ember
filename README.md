@@ -31,6 +31,10 @@ A short introduction of this app could easily go here.
   - network requests show that there is a request to `/tree-sitter.wasm`, but we've built our WASM bindings into `/tree-sitter/*`
     - we can customize the paths of the language wasm files, but not the main tree-sitter.wasm
 
+6. Using monaco-tree-sitter, the individual grammar definitions need to be configured to be used by monaco.
+   - error: `grammar` is not defined. `grammar` is not required by these modules,
+     so we need to figure out where it comes from and define it on `window`
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

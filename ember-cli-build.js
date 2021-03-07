@@ -8,6 +8,7 @@ const fs = require('fs');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 const { mv } = require('broccoli-stew');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 function WASMBindings() {
   const root = process.cwd();
@@ -46,6 +47,19 @@ module.exports = function (defaults) {
 
     autoImport: {
       webpack: {
+        module: {
+          rules: [
+            {
+              test: /\.css$/,
+              use: ['style-loader', 'css-loader'],
+            },
+            {
+              test: /\.ttf$/,
+              use: ['file-loader'],
+            },
+          ],
+        },
+        plugins: [new MonacoWebpackPlugin()],
         node: {
           // web-tree-sitter is not a real browser package
           fs: 'empty',
