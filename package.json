@@ -65,5 +65,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "web-tree-sitter": "^0.19.1"
   }
 }
